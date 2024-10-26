@@ -26,6 +26,7 @@ Since this Jenkins server where this job will run is running in a linux docker c
 ```bash
 echo "Hello World!"
 echo "This is build number $BUILD_NUMBER running from git branch $BRANCH_NAME in folder $WORKSPACE"
+ls -altr
 ```
 > Note: This shell script has a problem that we'll come back to later.
 
@@ -70,10 +71,47 @@ To go a step further, click on **Console Output** on the left side of the screen
 
 > You remember when I said the shell commands had a problem? Can you see what that problem is and why it happened?
 
-If you finished this exercise early, you can play around with doing other things in the shell command window like:
+**Step 5: Run it as a Pipeline**
+-------------------------------------------
+
+Pipelines are going to be the main way you define jobs in Jenkins. They're defined in a Groovylang DSL, and can be checked in with code, meaning that build instructions are versioned alongside the application.
+
+There's a lot of tools built-in to a Jenkins installation, but to start out, I'll give you the pipeline script equivalent to the freestyle job you just ran. Open up the Jenkins menu, click on **New Item** and make a new pipeline.
+
+Instead of choosing the **Freestyle Project** type, this time choose the **Pipeline** type and name it `Hello_World_Pipeline`, then click **Ok**.
+
+Once you're at the job configuration page, scroll down to the bottom. Under **Pipeline**, you'll see a text box for a pipeline script. Copy and paste the code below into that box, then click **Save**.
+
+```
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo "Hello World!"
+                echo "This is build number $BUILD_NUMBER running in folder $WORKSPACE"
+                sh("ls -altr")
+            }
+        }
+    }
+    post {
+      always {
+        chuckNorris()
+      }
+    }
+}
+```
+
+Once you build the project and check the command output, you should see similar output to the freestyle job.
+
+**Wrap Up**
+-------------------------------------------
+
+If you finished this exercise early, you can play around with doing other things in the freestyle or pipeline jobs like:
 
 * Downloading a package from the intenet and listing it in the Jenkins Workspace
-* Setting and referencing environment variables
-* Calling a remote API from the Jenkins project
+* Explore the Pipeline Syntax generator from the Pipeline job configuration
+* Take a look at the [Pipeline Steps Reference](https://www.jenkins.io/doc/pipeline/steps/)
 
 Once you're done trying those, or if you'd like to skip, let the instructor know you're done.

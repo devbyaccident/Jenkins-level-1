@@ -5,6 +5,8 @@ Jenkins is an incredibly flexible and versitile build server. Out of the box, it
 
 This exercise is about finding a plugin from the Jenkins plugin repository and installing it. You'll be using it in the next exercise.
 
+> Sometimes, when running Jenkins in Docker, installing plugins can cause the container to crash. This is a course demo, so if necessary just restart the container with `docker compose up -d` from the [exercise 00 folder](../00-Environment-Setup/).
+
 **Step 1: Find the Chuck Norris Plugin**
 -------------------------------------------
 
@@ -45,5 +47,14 @@ Once the plugin is installed, you'll need to restart Jenkins before you can use 
 Navigate to http://localhost:8080/restart and click **Yes**, or check the box labeled **Restart Jenkins when installation is complete and no jobs are running** from the plugin installation page.
 
 Once Jenkins restarts, you'll be back to the sign in screen and you'll be able to use the new plugin.
+
+**Step 4: Install Other Course-Required Plugins**
+-------------------------------------------
+
+Now that you know how to install plugins, here's some of the other ones we're going to use during the course. Make sure these are installed before finishing the exercise.
+
+- **SonarQube Scanner for Jenkins** 
+- **GitHub Integration**
+- **GitHub Branch Source**
 
 Let the instructor know you're done and we'll do that in the next exercise.
