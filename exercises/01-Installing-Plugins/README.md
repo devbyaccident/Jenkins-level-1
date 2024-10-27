@@ -55,5 +55,6 @@ Now that you know how to install plugins, here's some of the other ones we're go
 
 **SonarQube Scanner for Jenkins** 
 **GitHub Integration**
+**GitHub Branch Source**
 
 Let the instructor know you're done and we'll do that in the next exercise.
