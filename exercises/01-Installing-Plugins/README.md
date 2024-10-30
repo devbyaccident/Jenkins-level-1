@@ -53,8 +53,8 @@ Once Jenkins restarts, you'll be back to the sign in screen and you'll be able t
 
 Now that you know how to install plugins, here's some of the other ones we're going to use during the course. Make sure these are installed before finishing the exercise.
 
-**SonarQube Scanner for Jenkins** 
-**GitHub Integration**
-**GitHub Branch Source**
+- **SonarQube Scanner for Jenkins** 
+- **GitHub Integration**
+- **GitHub Branch Source**
 
 Let the instructor know you're done and we'll do that in the next exercise.
