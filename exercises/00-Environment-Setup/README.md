@@ -40,7 +40,7 @@ To do that, we're going to use Docker Compose. In this folder, you should see al
 This configuration file:
 
 - Defines services for Jenkins, SonarQube, and a Jenkins agent. Don't worry about what these are yet, you'll learn more abou them as you go through the course.
--Creates a shared network so these services can connect to each other. 
+- Creates a shared network so these services can connect to each other. 
 - Makes a volume called `jenkins_home` available inside the container.
 
 **Step 3: Start the Jenkins Server Containers**
