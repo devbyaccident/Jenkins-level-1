@@ -72,6 +72,8 @@ docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 
 2.  **Install the Reccomended Plugins**: You'll install more later, but these are a good start for now.
 3.  **Create a new Admin user**: Enter your details, choose an admin password, and save.
+4. **Set your Hostname**
+Since we're just running this as a lab environment, we can leave this as `http://localhost:8080`, but in a production environment, this would be the URL which you use to access Jenkins. For now, click **Save and Finish**
 
 Congratulations! You have now set up a Jenkins server running on Docker Compose. This is a basic example to get you started with the exercises locally, and you will be learning more about this setup and making changes to it throughout the course.
 
