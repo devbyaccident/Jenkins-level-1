@@ -1,19 +1,49 @@
-version: '3.8'
+name: jenkins_course
+
 services:
+  agent:
+    image: jenkins/ssh-agent:alpine-jdk17
+    restart: always
+    container_name: agent
+    depends_on:
+      - jenkins
+    expose:
+      - 22:22
+    networks:
+      - jenkins
+
   jenkins:
-    image: jenkins/jenkins:lts-jdk17
-    container_name: jenkins-jdk-17
-    privileged: true
+    image: jenkins/jenkins:lts
     user: root
+    privileged: true
+    container_name: jenkins
     restart: always
     ports:
+      - 2345:2345
       - 8080:8080
       - 50000:50000
     volumes:
       - jenkins_home:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - jenkins
+
+  # Default username/passwd: admin/admin
+  sonarqube:
+    image: sonarqube:lts
+    restart: always
+    container_name: sonarqube
+    ports:
+      - "9000:9000"
+      - "9092:9092"
+    networks:
+      - jenkins
 
 volumes:
   jenkins_home:
     name: jenkins_home
+
+networks:
+  jenkins:
+    driver: bridge
